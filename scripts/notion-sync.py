@@ -85,8 +85,7 @@ def notion_to_markdown(blocks):
             markdown.append(f'> {text}\\n')
         # Images
         elif block_type == 'image':
-            url = block['image'].get('file', {}).get('url') or \\
-                  block['image'].get('external', {}).get('url')
+            url = block['image'].get('file', {}).get('url') or block['image'].get('external', {}).get('url')
             if url:
                 caption = rich_text_to_markdown(block['image'].get('caption', []))
                 alt_text = caption if caption else 'Image'
